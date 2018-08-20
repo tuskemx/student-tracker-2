@@ -16,7 +16,7 @@
 
 ## The desired solution
 
-Northcoders has hired you and your pair as contractors to deliver a prototype for a 'student tracker'. A demo of said tracker will be shown to you at the start of the sprint - imagine it was built using a 'no-code' prototyping tool such as [proto.io](https://proto.io). At this stage, persistent storage (whether on the server or locally) isn't required, but a working user interface is to demonstrate how the app might work.
+Northcoders has hired you and your pair as contractors to deliver a prototype for a 'student tracker'. At this stage, persistent storage (whether on the server or locally) isn't required, but a working user interface is to demonstrate how the app might work. You can integrate local storage if you wish, but to achieve the necessary functionality you shouldn't need to touch the lifecycle apart from render.
 
 Northcoders' team have given you a list of user stories for the application:
 
