@@ -43,7 +43,7 @@ You can find the API [here](nc-student-tracker.herokuapp.com)
 The endpoints serve up the following:
 
 **GET**  
-`/api/students[?graduated=true/fase]`
+`/api/students[?graduated=true/false]`
 * This serves up an array of students in the form 
 ```js
 {
