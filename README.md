@@ -59,12 +59,12 @@ Somebody with a `blockHistory` of `[1,1,2]` will have done core twice and BE-1 o
 There is also an optional query to get students depending on whether they have graduated or not.  
 
 **GET**  
-`api/student/:id`
+`api/students/:id`
 
 * This serves up a single student object by id, with the same format as above.
 
 **PATCH**  
-`api/student/:id`
+`api/students/:id`
 
 * Update a student's details such as `blockHistory`.
 
@@ -88,7 +88,7 @@ There is also an optional query to get students depending on whether they have g
 * This will get an array of students in a particular cohort.
 
 **DELETE** 
-`api/student/:id`
+`api/students/:id`
 * This will delete a given student by their id.
 
 
