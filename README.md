@@ -80,11 +80,11 @@ There is also an optional query to get students depending on whether they have g
 ```
 
 **GET** 
-`api/blocks/:id`
+`api/blocks/:block_number/students`
 * This will get an array of all the students in a particular block.
 
 **GET** 
-`api/cohorts/:id`
+`api/cohorts/:cohort_number/students`
 * This will get an array of students in a particular cohort.
 
 **DELETE** 
