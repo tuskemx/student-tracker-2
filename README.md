@@ -39,7 +39,7 @@ Northcoders' team have given you a list of user stories for the application:
 
 * We are obviously going to need some data in order to build the user interface for the student-tracker.  Our react application can then make API requests and display the information on the page.  For this purpose, we have built several API end-points for you to retrieve data about the students, block and cohorts at northcoders.
 
-You can find the API [here](nc-student-tracker.herokuapp.com)
+You can find the API [here](https://nc-student-tracker.herokuapp.com)
 The endpoints serve up the following:
 
 **GET**  
