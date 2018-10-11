@@ -14,6 +14,7 @@
 * In particular, every two weeks, during 'block review' - students are either graduated from a block if their understanding of the block's learning outcomes is sufficient, or they are asked to resit it.
 * New students also join the course (on block 1) on the day of a block review
 
+
 ## The desired solution
 
 Northcoders has hired you and your pair as contractors to deliver a prototype for a 'student tracker'. At this stage, persistent storage (whether on the server or locally) isn't required, but a working user interface is to demonstrate how the app might work. You can integrate local storage if you wish, but to achieve the necessary functionality you shouldn't need to touch the lifecycle apart from render.
@@ -34,7 +35,65 @@ Northcoders' team have given you a list of user stories for the application:
 * As an admin, I want to be able to remove people from the course so that we can account for the occasional leaver.
 * As an admin, I want to see how many pathways through the course there have been so that we can communicate that to relevant stakeholders.
 
+## Getting the data
+
+* We are obviously going to need some data in order to build the user interface for the student-tracker.  Our react application can then make API requests and display the information on the page.  For this purpose, we have built several API end-points for you to retrieve data about the students, block and cohorts at northcoders.
+
+You can find the API [here](nc-student-tracker.herokuapp.com)
+The endpoints serve up the following:
+
+**GET**  
+`/api/students[?graduated=true/fase]`
+* This serves up an array of students in the form 
+```js
+{
+  _id : "5bbf0b168902695948a9ec74",
+  name: "Lamar Quigley"
+  startingCohort: 3
+  blockHistory: [1,1,2]
+}
+```
+The `blockHistory` is an array representing a student's completion of blocks.  Each number represents a block.
+E.g.  somebody with a `blockHistory` of `[1,1]` will have re-sat core twice.  
+Somebody with a `blockHistory` of `[1,1,2]` will have done core twice and BE-1 once etc.  
+There is also an optional query to get students depending on whether they have graduated or not.  
+
+**GET**  
+`api/student/:id`
+
+* This serves up a single student object by id, with the same format as above.
+
+**PATCH**  
+`api/student/:id`
+
+* Update a student's details such as `blockHistory`.
+
+**POST**
+`api/students`
+
+* You should be able to post a body to this end-point in the form 
+```js
+{
+  name :  'Ant Medina'
+  startingCohort: 1
+}
+```
+
+**GET** 
+`api/blocks/:id`
+* This will get an array of all the students in a particular block.
+
+**GET** 
+`api/cohorts/:id`
+* This will get an array of students in a particular cohort.
+
+**DELETE** 
+`api/student/:id`
+* This will delete a given student by their id.
+
+
 **Quick, before we lose a student!**
+
 
 ## Tips
 
