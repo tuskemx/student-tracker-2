@@ -50,13 +50,13 @@ The endpoints serve up the following:
   "_id": "5bbf0b168902695948a9ec74",
   "name": "Lamar Quigley",
   "startingCohort": 3,
-  "blockHistory": [1, 1, 2]
+  "blockHistory": ["core", "core", "front-end-1"]
 }
 ```
 
 The `blockHistory` is an array representing a student's completion of blocks. Each number represents a block.
-E.g. somebody with a `blockHistory` of `[1,1]` will have re-sat core twice.  
-Somebody with a `blockHistory` of `[1,1,2]` will have done core twice and BE-1 once etc.  
+E.g. somebody with a `blockHistory` of `['core', 'core']` will have sat core twice.  
+Somebody with a `blockHistory` of `['core', 'core', 'back-end-1']` will have done core twice and BE-1 once etc.  
 There is also an optional query to get students depending on whether they have graduated or not.
 
 ### **GET** `/api/students/:id`
@@ -76,6 +76,20 @@ There is also an optional query to get students depending on whether they have g
   "name": "Ant Medina",
   "startingCohort": 1
 }
+```
+
+### **GET** `/api/blocks`
+
+- This will get an array of all the blocks in the form:
+
+```js
+[{
+  __v: 0,
+  _id: '5bd0755a064fe4246d4975b2',
+  name: 'Core',
+  number: 1,
+  slug: 'core'
+}, ...];
 ```
 
 ### **GET** `/api/blocks/:block_number/students`
