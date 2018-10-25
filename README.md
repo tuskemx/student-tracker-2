@@ -50,42 +50,18 @@ The endpoints serve up the following:
   "_id": "5bbf0b168902695948a9ec74",
   "name": "Lamar Quigley",
   "startingCohort": 3,
-  "currentBlock": "front-end-1"]
+  "blockHistory": [1, 1, 2]
 }
 ```
 
+The `blockHistory` is an array representing a student's completion of blocks. Each number represents a block.
+E.g. somebody with a `blockHistory` of `[1,1]` will have re-sat core twice.  
+Somebody with a `blockHistory` of `[1,1,2]` will have done core twice and BE-1 once etc.  
 There is also an optional query to get students depending on whether they have graduated or not.
 
 ### **GET** `/api/students/:id`
 
-- This serves up a single student object by id.
-
-
-```json
-
-    "blockHistory": [
-      {
-        "_id": "5bd0755a064fe4246d4975b2",
-        "number": 1,
-        "name": "Core",
-        "slug": "core"
-      },
-      {
-        "_id": "5bd0755a064fe4246d4975b3",
-        "number": 2,
-        "name": "Back End 1",
-        "slug": "back-end-1"
-      }
-    ],
-    "_id": "5bd0755a064fe4246d4975b9",
-    "name": "Macey Watsica",
-    "startingCohort": 11,
-    "__v": 0
-  }
-```
-
-The `blockHistory` is an array representing a student's completion of blocks. Each item represents a block.
-I.e. The student above will have sat core once and will currently be on BE-1.  
+- This serves up a single student object by id, with the same format as above.
 
 ### **PATCH** `/api/students/:id`
 
@@ -102,27 +78,13 @@ I.e. The student above will have sat core once and will currently be on BE-1.
 }
 ```
 
-### **GET** `/api/blocks`
-
-- This will get an array of all the blocks in the form:
-
-```js
-[{
-  __v: 0,
-  _id: '5bd0755a064fe4246d4975b2',
-  name: 'Core',
-  number: 1,
-  slug: 'core'
-}, ...];
-```
-
 ### **GET** `/api/blocks/:block_number/students`
 
-- This will get an array of all the students in a particular block, in a similar format to GET `/api/students`.
+- This will get an array of all the students in a particular block.
 
 ### **GET** `/api/cohorts/:cohort_number/students`
 
-- This will get an array of students in a particular cohort, in a similar format to GET `/api/students`.
+- This will get an array of students in a particular cohort.
 
 ### **DELETE** `/api/students/:id`
 
@@ -130,7 +92,7 @@ I.e. The student above will have sat core once and will currently be on BE-1.
 
 **Quick, before we lose a student!**
 
-# Tips
+## Tips
 
 - **Every** time you develop a React app from scratch, you should go through the process of [Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 - The user stories don't necessarily need to be implemented in the order given - sometimes it's best to pick off low hanging fruit first
