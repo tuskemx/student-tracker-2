@@ -50,26 +50,55 @@ The endpoints serve up the following:
   "_id": "5bbf0b168902695948a9ec74",
   "name": "Lamar Quigley",
   "startingCohort": 3,
-  "blockHistory": [1, 1, 2]
+  "currentBlock": "front-end-2"
 }
 ```
 
-The `blockHistory` is an array representing a student's completion of blocks. Each number represents a block.
-E.g. somebody with a `blockHistory` of `[1,1]` will have re-sat core twice.  
-Somebody with a `blockHistory` of `[1,1,2]` will have done core twice and BE-1 once etc.  
-There is also an optional query to get students depending on whether they have graduated or not.
-
 ### **GET** `/api/students/:id`
 
-- This serves up a single student object by id, with the same format as above.
+- This serves up a student object in the form
 
-### **PATCH** `/api/students/:id`
+```json
+{
+  "student": {
+    "_id": "5bd0755a064fe4246d4975b9",
+    "name": "Macey Watsica",
+    "startingCohort": 11,
+    "blockHistory": [
+      {
+        "_id": "5bd0755a064fe4246d4975b2",
+        "number": 1,
+        "name": "Core",
+        "slug": "core"
+      },
+      {
+        "_id": "5bd0755a064fe4246d4975b2",
+        "number": 1,
+        "name": "Core",
+        "slug": "core"
+      },
+      {
+        "_id": "5bd0755a064fe4246d4975b3",
+        "number": 2,
+        "name": "Back End 1",
+        "slug": "back-end-1"
+      }
+    ],
+    "__v": 0
+  }
+}
+```
 
-- Update a student's details such as `blockHistory`.
+The `blockHistory` is an array representing a student's completion of blocks. Each item represents a block.
+I.e. The student above will have sat core twice and will currently be on back-end-1.  
+
+### **PUT** `/api/students/:id?resit={true/false}`
+
+- Update a student's `blockHistory` following block reviews. Returns a student in the same format as **GET** `/api/students/:id`.
 
 ### **POST** `/api/students`
 
-- You should be able to post a body to this end-point in the form:
+- You should be able to post a body to this end-point in the below form. This endpoint returns a student in the same format as **GET** `/api/students/:id`.
 
 ```json
 {
@@ -78,13 +107,13 @@ There is also an optional query to get students depending on whether they have g
 }
 ```
 
-### **GET** `/api/blocks/:block_number/students`
+### **GET** `/api/blocks/:block_slug/students`
 
-- This will get an array of all the students in a particular block.
+- This will get an array of all the students in a particular block. Displaying students in the same format as **GET** `/api/students`
 
 ### **GET** `/api/cohorts/:cohort_number/students`
 
-- This will get an array of students in a particular cohort.
+- This will get an array of all the students who started on a particular cohort. Displaying students in the same format as **GET** `/api/students`
 
 ### **DELETE** `/api/students/:id`
 
