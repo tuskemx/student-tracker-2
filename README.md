@@ -41,7 +41,7 @@ Northcoders' team have given you a list of user stories for the application:
 You can find the API [here](https://nc-student-tracker.herokuapp.com)
 The endpoints serve up the following:
 
-### **GET** `/api/students[?graduated=true/false]`
+### **GET** `/api/students`
 
 - This serves up an array of students in the form
 
