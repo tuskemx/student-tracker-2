@@ -1,4 +1,4 @@
-# FE2-FT-dev-pathway-student-tracker
+# Developer Pathway Student Tracker
 
 ## Learning outcomes
 
