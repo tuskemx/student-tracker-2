@@ -107,6 +107,24 @@ I.e. The student above will have sat core twice and will currently be on back-en
 }
 ```
 
+### **GET** `/api/blocks`
+
+- This serves up all blocks in the form:
+
+```json
+{
+    "blocks": [
+        {
+            "_id": "5bf69a8e4e52992859f5f758",
+            "number": 1,
+            "name": "Core",
+            "slug": "core",
+            "__v": 0
+        },
+     ... ]
+}
+```
+
 ### **GET** `/api/blocks/:block_slug/students`
 
 - This will get an array of all the students in a particular block. Displaying students in the same format as **GET** `/api/students`
