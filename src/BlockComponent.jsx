@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getBlock } from './Api';
+import GraduateComponent from './GraduateComponent';
 
 class BlockComponent extends Component {
     state = {
@@ -18,8 +19,7 @@ class BlockComponent extends Component {
                             <li>{student.name}</li>
                             <li>Starting Cohort: {student.startingCohort}</li>
                             <li>{student.currentBlock}</li>
-                            <button>Graduate</button>
-                            <button>Do not Graduate</button>
+                            <GraduateComponent id={student._id} />
                         </ul>
                     })
                 }

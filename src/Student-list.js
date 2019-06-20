@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getStudents } from "./Api";
+import GraduateComponent from './GraduateComponent';
 
 export default class StudentList extends Component {
   state = {
@@ -12,13 +13,12 @@ export default class StudentList extends Component {
         <h1>Student List</h1>
         {this.state.students.map(student => {
           return (
-            <ul>
+            <ul key={student.name}>
               <li>{student.name}</li>
               <li>{student.startingCohort}</li>
               <li>{student.currentBlock}</li>
               <li>{student._id}</li>
-              <button>Graduate</button>
-              <button>Do not Graduate</button>
+              <GraduateComponent id={student._id} />
             </ul>
           );
         })}
