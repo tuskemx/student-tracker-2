@@ -1,16 +1,20 @@
-import React from 'react';
-import axios from 'axios';
-import { determineGraduation } from './Api';
 
-const GraduateComponent = (props) => {
-console.log(props);
-console.log(determineGraduation)
-    return (
-        <div>
-            <button onClick={() => { determineGraduation(props.id, true) }}>Graduate</button>
-            <button onClick={() => { determineGraduation(props.id, false) }}>Do Not Graduate</button>
-        </div>
-    );
-};
+import { determineGraduation } from './Api';
+import React, { Component } from 'react';
+
+class GraduateComponent extends Component {
+    state = {
+       graduateBool: false
+    }
+    render() {
+
+        return (
+            <div>
+                <button onClick={() => { determineGraduation(this.props.id, true, this.props.name) }}>Graduate</button>
+                <button onClick={() => { determineGraduation(this.props.id, false, this.props.name) }}>Do Not Graduate</button>
+            </div>
+        );
+    };
+}
 
 export default GraduateComponent;

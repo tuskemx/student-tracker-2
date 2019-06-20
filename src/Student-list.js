@@ -18,7 +18,7 @@ export default class StudentList extends Component {
               <li>{student.startingCohort}</li>
               <li>{student.currentBlock}</li>
               <li>{student._id}</li>
-              <GraduateComponent id={student._id} />
+              <GraduateComponent id={student._id} name={student.name}/>
             </ul>
           );
         })}
@@ -30,3 +30,4 @@ export default class StudentList extends Component {
     getStudents().then(data => this.setState({ students: data.students }));
   }
 }
+

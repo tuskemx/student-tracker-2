@@ -19,7 +19,7 @@ class BlockComponent extends Component {
                             <li>{student.name}</li>
                             <li>Starting Cohort: {student.startingCohort}</li>
                             <li>{student.currentBlock}</li>
-                            <GraduateComponent id={student._id} />
+                            <GraduateComponent id={student._id} name={student.name} />
                         </ul>
                     })
                 }
