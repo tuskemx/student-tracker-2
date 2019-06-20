@@ -1,32 +1,16 @@
 import React from 'react';
 import axios from 'axios';
+import { determineGraduation } from './Api';
 
-const GraduateComponent = () => {
-
-
-
-
-
-const graduate = () => {
-
-}
-
-const doNotGraduate = () => {
-
-}
-
-
-
-
-
-
-
+const GraduateComponent = (props) => {
+console.log(props);
+console.log(determineGraduation)
     return (
         <div>
-          <button onClick={graduate}>Graduate</button>
-          <button onClick={doNotGraduate}>Do Not Graduate</button>
+            <button onClick={() => { determineGraduation(props.id, true) }}>Graduate</button>
+            <button onClick={() => { determineGraduation(props.id, false) }}>Do Not Graduate</button>
         </div>
-      );
+    );
 };
 
 export default GraduateComponent;
