@@ -12,7 +12,7 @@ class App extends Component {
         <Header />
         <Router>
           <StudentList path="/student-list" />
-          <Block path="/block" />
+          <Block path="/block/*" />
         </Router>
       </div>
     );
