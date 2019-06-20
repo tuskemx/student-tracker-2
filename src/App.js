@@ -3,6 +3,7 @@ import { Router, Link } from "@reach/router";
 import "./App.css";
 import Header from "./Header";
 import StudentList from "./Student-list";
+import Block from "./Block";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <Header />
         <Router>
           <StudentList path="/student-list" />
+          <Block path="/block" />
         </Router>
       </div>
     );
