@@ -17,6 +17,8 @@ export default class StudentList extends Component {
               <li>{student.startingCohort}</li>
               <li>{student.currentBlock}</li>
               <li>{student._id}</li>
+              <button>Graduate</button>
+              <button>Do not Graduate</button>
             </ul>
           );
         })}

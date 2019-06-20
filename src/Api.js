@@ -13,10 +13,19 @@ export const getBlock = param => {
   //delete later
   return axios.get(`${url}blocks/${param}/students`).then(response => {
     const { data } = response;
-    console.log(data, "block");
+   
     return data;
   });
-};
+}
+
+  export const postStudent = person => {
+        return axios.post(`${url}students`, person).then((res) => {
+          console.log(res, "api");
+          console.log(res.status, "api")
+          return res;
+        })
+  }
+
 
 //blocks/1/students
 

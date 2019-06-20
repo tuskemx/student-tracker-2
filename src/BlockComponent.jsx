@@ -14,7 +14,13 @@ class BlockComponent extends Component {
 
                 < h1 > {
                     this.state.students.map(student => {
-                        return <li key={student.name}>{student.name}</li>
+                        return <ul key={student.name}>
+                            <li>{student.name}</li>
+                            <li>Starting Cohort: {student.startingCohort}</li>
+                            <li>{student.currentBlock}</li>
+                            <button>Graduate</button>
+                            <button>Do not Graduate</button>
+                        </ul>
                     })
                 }
                 </h1>
