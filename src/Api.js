@@ -28,14 +28,22 @@ export const postStudent = person => {
 
 export const determineGraduation = (id, direction, name) => {
   return axios.patch(`${url}students/${id}?progress=${direction}`).then((res) => {
-    console.log(res);
-    console.log(direction);
-    console.log(res.status);
+
     if (direction === true && res.status === 200) {
       alert(`thank you for graduating ${name}`)
     }
     else if (direction === false && res.status === 200) {
       alert(`you have not graduated ${name}`)
+    }
+    return res;
+  })
+}
+
+export const deleteStudent = (id) => {
+  return axios.delete(`${url}students/${id}`).then((res) => {
+    console.log(res);
+    if (res.status === 204) {
+      alert(`deleted ${id}`)
     }
     return res;
   })

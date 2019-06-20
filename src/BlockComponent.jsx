@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getBlock } from './Api';
 import GraduateComponent from './GraduateComponent';
+import DeleteComponent from './DeleteComponent';
 
 class BlockComponent extends Component {
     state = {
@@ -23,6 +24,7 @@ class BlockComponent extends Component {
                             {this.props.blockslug !== "graduated" &&
                                 <GraduateComponent id={student._id} name={student.name} />
                             }
+                            <DeleteComponent id={student._id}/>
                         </ul>
                     })
                 }
