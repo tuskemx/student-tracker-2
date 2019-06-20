@@ -11,6 +11,7 @@ export default class StudentList extends Component {
     return (
       <div>
         <h1>Student List</h1>
+        <h2>{this.state.students.length}</h2>
         {this.state.students.map(student => {
           return (
             <ul key={student.name}>

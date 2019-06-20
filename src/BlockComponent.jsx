@@ -12,14 +12,17 @@ class BlockComponent extends Component {
 
         return (
             <div>
-
+                <h2>{this.state.students.length}</h2>
                 < h1 > {
+
                     this.state.students.map(student => {
                         return <ul key={student.name}>
                             <li>{student.name}</li>
                             <li>Starting Cohort: {student.startingCohort}</li>
                             <li>{student.currentBlock}</li>
-                            <GraduateComponent id={student._id} name={student.name} />
+                            {this.props.blockslug !== "graduated" &&
+                                <GraduateComponent id={student._id} name={student.name} />
+                            }
                         </ul>
                     })
                 }
